@@ -12,16 +12,18 @@ A simple task management application built with Flask and MySQL, containerized u
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/twotier-app.git
+git clone https://github.com/Harshil-kumar-4/twotier-app.git
 cd twotier-app
 ```
 
 2. Create a Docker network for communication between containers:
+here "task-network" is network name that you going to use
 ```bash
 docker network create task-network
 ```
 
 3. Set up MySQL container:
+here "taskdb" is the database name
 ```bash
 # Pull MySQL image
 docker pull mysql:8.0
@@ -44,6 +46,7 @@ docker build -t task-app:latest .
 ```
 
 5. Run the Flask application container:
+here "task-app" is the backend image name and that going to continue with container
 ```bash
 # Run the container
 docker run -d \
@@ -66,7 +69,8 @@ docker ps
 
 ## Using Docker Compose (Alternative Method)
 
-If you prefer using Docker Compose:
+If you prefer using Docker Compose go with the below command:
+I recomend once go throug the compose file to understand--
 
 ```bash
 docker-compose up --build
@@ -118,8 +122,9 @@ docker logs taskdb
 
 ## Security Scanning
 
-To scan the Docker images for vulnerabilities using Docker Scout:
-
+To scan the Docker images for vulnerabilities using Docker Scout for this make shure the docker desktop is installed localy or in the server
+Go to the "docker/scout-cli" in github check with the README file sure you will find the details in there
+After instalation:
 ```bash
 docker scout cves task-app:latest
 ```
@@ -160,3 +165,5 @@ docker logs task-app
 # Verify port mapping
 docker port task-app
 ```
+## Contributing: 
+Feel free to contribute to this project by submitting pull requests, add some additional features that are suitable or raising issues on GitHub.
